@@ -1,73 +1,66 @@
-Real-Time Hand Gesture Classifier
-Project Overview
-This project implements a low-latency computer vision application capable of recognizing and classifying hand gestures in real-time from a live webcam feed. Built primarily with OpenCV and the CVZone framework, it utilizes a pre-trained Keras/TensorFlow model to classify the hand signs, which include numbers (0−9) and the American Sign Language (ASL) alphabet (A−Z).
+# 🤖 Real-Time Hand Gesture Classifier
 
-The primary goal is to demonstrate a functional machine learning pipeline that handles real-time object detection (hand localization) followed by image preprocessing and classification.
+A **low-latency computer vision application** that recognizes and classifies **hand gestures in real time** using a live webcam feed.  
+This project demonstrates a complete **machine learning pipeline** — from **hand detection** and **image preprocessing** to **gesture classification** — built using **OpenCV**, **CVZone**, and a **TensorFlow/Keras** model.
 
-✨ Key Features
-Real-Time Classification: Performs continuous gesture recognition with low latency, displaying the predicted label directly onto the live video stream.
+---
 
-36 Gesture Support: Capable of classifying 36 distinct hand signs (10 digits and 26 letters).
+## 🧠 Project Overview
 
-Dynamic Image Preprocessing: Automatically detects the hand using bounding box coordinates and applies dynamic scaling and padding to normalize the captured image into a consistent 300×300 pixel input for the CNN model.
+The system detects a hand in the webcam feed, preprocesses the image dynamically, and classifies it into one of **36 gestures**, including:
+- **Digits (0–9)**
+- **ASL Alphabets (A–Z)**
 
-Visual Feedback: Provides simultaneous visualization of the raw camera feed, the cropped and normalized image (for model input verification), and a reference image.
+It’s designed to be **lightweight**, **fast**, and **educational**, showing how real-time computer vision can integrate with deep learning for interactive applications.
 
-💻 Technologies Used
-Tool/Library
+---
 
-Purpose
+## ✨ Key Features
 
-Python
+- 🎥 **Real-Time Classification:**  
+  Recognizes hand gestures with minimal latency and overlays the predicted label on the video feed.
 
-Primary development language.
+- 🔤 **36 Gesture Support:**  
+  Classifies both digits (0–9) and ASL alphabets (A–Z).
 
-OpenCV (cv2)
+- ⚙️ **Dynamic Image Preprocessing:**  
+  Automatically crops, scales, and normalizes detected hand images to a consistent **300×300 px** input for the CNN model.
 
-Core computer vision tasks, including video capture, image display, and drawing overlays.
+- 🧩 **Visual Feedback:**  
+  Displays live video feed, preprocessed image, and classification results side by side.
 
-CVZone
+---
 
-Simplified hand detection and ML classification utilities.
+## 💻 Technologies Used
 
-Keras / TensorFlow
+| Tool / Library | Purpose |
+|-----------------|----------|
+| **Python** | Primary programming language |
+| **OpenCV (cv2)** | Video capture, drawing overlays, and visualization |
+| **CVZone** | Simplified hand detection and gesture classification utilities |
+| **TensorFlow / Keras** | Deep learning model framework |
+| **NumPy** | Array operations and image manipulation |
 
-Framework used for the underlying classification model (keras_model.h5).
+---
 
-NumPy
+## ⚙️ Installation and Setup
 
-Array manipulation for image processing tasks.
+### 🧾 Prerequisites
+- Python **3.x**
+- A functional **webcam**
 
-⚙️ Installation and Setup
-Prerequisites
-Python 3.x (Recommended)
+### 🏗️ Environment Setup
+It’s recommended to use a **virtual environment**:
 
-A functional webcam.
-
-Environment Setup
-It is highly recommended to use a virtual environment (venv).
-
-# 1. Create and activate virtual environment
+```bash
+# 1. Create a virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
 
-# 2. Install required libraries
+# 2. Activate it
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# 3. Install dependencies
 pip install opencv-python numpy cvzone tensorflow
-
-Model Files (Crucial Step)
-The project relies on two files that are required for classification. Since large files are typically not pushed to GitHub, you need to ensure they are available locally:
-
-Model/keras_model.h5: The trained CNN model file.
-
-Model/labels.txt: A text file listing the 36 labels in the correct order.
-
-Ensure you place these files in a folder named Model/ in the root of your project directory.
-
-▶️ How to Run the Application
-Ensure your virtual environment is active.
-
-Run the main Python script (assuming the file is named main.py):
-
-python main.py
-
-A window will open displaying your live webcam feed with the predicted gesture label overlaid.
